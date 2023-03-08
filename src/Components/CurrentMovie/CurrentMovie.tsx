@@ -1,34 +1,64 @@
-import React, { Component } from 'react';
-import './CurrentMovie.css'
-import backbutton from '../../images/backbutton.png' 
-import { Link } from 'react-router-dom'
-import { getAllData } from '../../Utilities/apiCalls';
+import React, { Component } from "react";
+import { getAllData } from "../../Utilities/apiCalls";
+import backBtn from '../../Assets/backbutton.png'
 import ReactStars from 'react-stars'
-import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom'
+import './CurrentMovie.css'
 
-class CurrentMovie extends Component {
-    constructor() {
-        super()
-        this.state = {
-            currentMovie: '',
-            movieTrailer: '',
-            error: '',
-        }
+interface MovieObj {
+    id: number,
+    title: string
+    poster_path:string,
+    backdrop_path: string,
+    release_date: string,
+    overview: string,
+    genres: string[],
+    budget: number,
+    revenue: number,
+    runtime: number,
+    tagline: string,
+    average_rating: number,
+  }
+
+interface VideoObj {
+    id: number,
+    movie_id: number,
+    key: string,
+    site: string,
+    type: string
+}
+
+type MyProps = {
+    currentMovieId: string,
+}
+
+type MyState = {
+    currentMovie: MovieObj,
+    movieTrailer: VideoObj,
+    error: string,
+}
+
+class CurrentMovie extends Component<MyProps, MyState> {
+    state:MyState = {
+        currentMovie: {} as MovieObj,
+        movieTrailer: {} as VideoObj,
+        error: '',
     }
 
-    componentDidMount() {
+    componentDidMount(): void {
         getAllData(`/movies/${this.props.currentMovieId}`)
-            .then((data => this.setState({ currentMovie: data.movie })))
+            .then(data => this.setState({ currentMovie: data.movie }))
             .catch(error => this.setState({ error: `${error} displaying this movie.` }))
         getAllData(`/movies/${this.props.currentMovieId}/videos`)
             .then(data => {
-                let trailer = data.videos.find(video => video.type === 'Trailer')
-                this.setState({movieTrailer: trailer === undefined ? '' : trailer})
+                let trailer = data.videos.find((video: VideoObj) => video.type === 'Trailer')
+                this.setState({ movieTrailer: trailer === undefined ? '' : trailer })
             })
             .catch(error => this.setState({ error: `${error} displaying this trailer.` }))
     }
 
     render() {
+
         const currentMovieStyle = {
             backgroundImage: `url(${this.state.currentMovie.backdrop_path})`,
             height: '100vh',
@@ -36,23 +66,26 @@ class CurrentMovie extends Component {
             backgroundRepeat: 'no-repeat',
         }
 
-        const toHoursAndMinutes = (totalMinutes) => {
+        const toHoursAndMinutes = (totalMinutes: number) => {
             const minutes = totalMinutes % 60;
             const hours = Math.floor(totalMinutes / 60);
         
             return `${hours}h${minutes > 0 ? ` ${minutes}m` : ''}`;
         }
 
+        // getting weird error in dev tools when clicking on trailer button. Maybe look at embedding video instead
         const trailerPath = `https://www.youtube.com/watch?v=${this.state.movieTrailer.key}`
 
         const updatedRating = this.state.currentMovie.average_rating/2
 
         return (
-
-            <div className="current-movie" style={currentMovieStyle}>
+            <div 
+                className="current-movie" 
+                style={currentMovieStyle}
+            >
                 <aside className="left-section">
                     <Link to='/' className='button-wrapper'>
-                        <img className="back-button" src={backbutton} alt="backbutton" />
+                        <img className="back-button" src={backBtn} alt="backbutton" />
                     </Link>
                     <section>
                         <div className='movieDetails'>
@@ -66,7 +99,7 @@ class CurrentMovie extends Component {
                                 count={5}
                                 value={updatedRating}
                                 half={true}
-                                size={'3vh'}
+                                size={20}
                                 color2={'#ffd700'}
                                 edit={false}
                             />
@@ -83,7 +116,3 @@ class CurrentMovie extends Component {
 }
 
 export default CurrentMovie
-
-CurrentMovie.propTypes = {
-    currentMovieId: PropTypes.number
-}

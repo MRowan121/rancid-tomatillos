@@ -1,12 +1,23 @@
 import React from "react";
 import Card from "../Card/Card";
 import './Movies.css'
-import PropTypes from 'prop-types';
 
+interface MovieObj {
+    average_rating: number,
+    backdrop_path: string,
+    id: number,
+    poster_path: string,
+    release_date: string,
+    title: string
+}
 
-const Movies = ({movies, getCurrentMovie}) => {
+type MyProps = {
+    movies: MovieObj[]
+}
 
-    const sortedMovies = movies.map(movie => movie).sort((a, b) => a.title.localeCompare(b.title))
+const Movies: React.FC<MyProps> = ({ movies }) => {
+    
+    const sortedMovies = movies.map(movie => movie).sort((a, b) => a.title.localeCompare(b.title))    
 
     const moviePoster = sortedMovies.map(movie => {
         return (
@@ -15,20 +26,15 @@ const Movies = ({movies, getCurrentMovie}) => {
                 title={movie.title}
                 id={movie.id}
                 key={movie.id}
-                getCurrentMovie={getCurrentMovie}
             />
         )
     })
 
-    return (
+    return(
         <div className="movieContainer">
             {moviePoster}
         </div>
     )
 }
 
-export default Movies;
-
-Movies.propTypes = {
-    movies: PropTypes.array
-}
+export default Movies
