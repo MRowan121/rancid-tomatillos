@@ -3,7 +3,7 @@ import './App.css';
 import Nav from '../Nav/Nav'
 import Movies from '../Movies/Movies'
 import CurrentMovie from '../CurrentMovie/CurrentMovie'
-import { getAllData } from '../../apiCalls'
+import { getAllData } from '../../Utilities/apiCalls'
 import { Route, Switch } from 'react-router-dom'
 
 

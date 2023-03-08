@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './CurrentMovie.css'
 import backbutton from '../../images/backbutton.png' 
 import { Link } from 'react-router-dom'
-import { getAllData } from '../../apiCalls';
+import { getAllData } from '../../Utilities/apiCalls';
 import ReactStars from 'react-stars'
 import PropTypes from 'prop-types';
 
