@@ -1,3 +1,6 @@
+/// <reference types="cypress" />
+// @ts-check
+
 describe('Home page', () => {
     beforeEach(() => {
       cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies', {fixture: 'movies'})
