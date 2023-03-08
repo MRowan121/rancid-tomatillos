@@ -1,11 +1,20 @@
 # Rancid Tomatillos
 
+## Technologies Used
+<div>
+    <img src="https://shields.io/badge/TypeScript-3178C6?logo=TypeScript&logoColor=FFF&style=flat-square" width="100" height="30"/>
+    <img src="https://img.shields.io/badge/-react-333333?logo=react&style=for-the-badge" width="100" height="30"/>
+    <img src="https://img.shields.io/badge/-react%20router-f44250?logo=react%20router&logoColor=white&style=for-the-badge" width="100" height="30"/>
+    <img src="https://img.shields.io/badge/-cypress-007780?logo=cypress&logoColor=white&style=for-the-badge" width="100" height="30"/>
+    <img src="https://img.shields.io/badge/-CSS3-315780?logo=css3&style=for-the-badge" width="100" height="30"/>
+    <img src="https://img.shields.io/badge/-npm-c12127?logo=npm&logoColor=white&style=for-the-badge" width="100"  height="30"/>
+    <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" width="100" height="30" />
+</div>
 
 ## Table of Contents
   * [Goals](#goals)
   * [Set-Up Instructions](#set-up-instructions)
   * [Demonstration](#demonstration)
-  * [Technologies Used](#technologies-used)
   * [Contributors](#Contributors)
 
 ## Goals
@@ -17,10 +26,10 @@
 *More information can be found on [the official project specifications document](https://frontend.turing.edu/projects/module-3/rancid-tomatillos-v3.html).*
 
 ## Set-Up Instructions
-1. Fork the Repo from the [Repository](https://github.com/derekgithub2/rancid-tomatillos)
+1. Fork the Repo from the [Repository](https://github.com/MRowan121/rancid-tomatillos)
 2. Clone the repo
    ```sh
-   git clone git@github.com:derekgithub2/rancid-tomatillos.git
+   git clone git@github.com:MRowan121/rancid-tomatillos.git
    ```
 3. Install NPM packages
    ```sh
@@ -40,21 +49,9 @@
 ![movie_search](https://user-images.githubusercontent.com/110955503/218612360-1ff00310-5682-4f2d-bb87-e9fda7f58053.gif)
 ![movie_trailer](https://user-images.githubusercontent.com/110955503/218612368-da15cc45-293c-4fb4-9c4a-7ece3c880208.gif)
 
-
-
-
-
-
-## Technologies Used
-<div>
-  <img src="https://img.shields.io/badge/-react-333333?logo=react&style=for-the-badge" width="100" height="30"/>
-  <img src="https://img.shields.io/badge/-react%20router-f44250?logo=react%20router&logoColor=white&style=for-the-badge" width="100" height="30"/>
-  <img src="https://img.shields.io/badge/-cypress-007780?logo=cypress&logoColor=white&style=for-the-badge" width="100" height="30"/>
-  <img src="https://img.shields.io/badge/-CSS3-315780?logo=css3&style=for-the-badge" width="100" height="30"/>
-  <img src="https://img.shields.io/badge/-npm-c12127?logo=npm&logoColor=white&style=for-the-badge" width="100"  height="30"/>
-  <img src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E" width="100" height="30" />
-</div>
-
 ## Contributors
-- Matt Rowan | [GitHub](https://github.com/MRowan121) | [LinkedIn](https://www.linkedin.com/in/mrowan121/)
 - Derek Yeh | [GitHub](https://github.com/derekgithub2) | [LinkedIn](https://www.linkedin.com/in/derekyeh/)
+- Matt Rowan | [GitHub](https://github.com/MRowan121) | [LinkedIn](https://www.linkedin.com/in/mrowan121/)
+
+## Disclaimer
+- This application was initially created as a paired project however, in this version, I have refactored the code and implemented TypeScript.
